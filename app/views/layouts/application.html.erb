@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+ <% end -%>
+ 
+ <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+          <div class ='col-xs-4'>
+                <h1>Its My First Ruby App</h1>
+          </div>      
+              <div class= 'col-xs-4 col-xs-offset-4'> 
+              
+              <% if user_logged_in %>
+              
+              
+              
+              <% else %>
+             
+              <%= link_to 'Sign In', sign_in_path %>
+              
+              
+              <% end %>
+              
+              </div>
+      </div>
+</nav>
+    
+<div class="container-fluid">
+  <%= yield %>
+</div>
+
+</body>
+</html>

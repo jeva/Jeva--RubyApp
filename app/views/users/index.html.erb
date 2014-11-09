@@ -1,0 +1,14 @@
+<h1>User List </h1>
+<ul>
+    
+    <%= @user.each do|user| %>
+       <li>
+       <span><%= link_to user.name, edit_user_path(id: user.id) %></span>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        <span> <%= link_to 'Delete', user_path(id: user.id), method: :delete, confirm: 'Are you sure want to delete' %> </span>
+       </li>
+    
+    <% end %>
+    
+    
+</ul>
