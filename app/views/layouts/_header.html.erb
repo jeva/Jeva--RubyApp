@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class='col-xs-4'>
+        <h1>Whatimeisit</h1>
+    </div>
+    <div class='col-xs-4 col-xs-offset-4'>
+        <ul class="nav nav-pills" role="tablist">
+
+          <li role="presentation" <%= current_page?( controller: 'static_pages', action: 'welcome' ) ? "class=active" : "" %> ><%= link_to 'Home', root_path %></li>
+          <li role="presentation" <%= current_page?(controller: 'users', action: 'new') ? "class=active" : "" %>  ><%= link_to 'Register', sign_up_path %></li>
+         
+           <% if user_logged_in %>
+              
+             <li role="presentation"> 
+             <%= link_to 'Sign Out', sign_out_path(current_user.id), method: :delete %>
+              
+              <% else %>
+             
+            <li role="presentation">    <%= %><%= link_to 'Sign In', sign_in_path %>
+              
+              </li>
+              
+              <% end %>
+                    
+        </ul>
+        
+    </div>
+</nav>

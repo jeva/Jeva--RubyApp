@@ -1,7 +1,7 @@
 <h1>User List </h1>
 <ul>
     
-    <%= @user.each do|user| %>
+    <% @user.each do|user| %>
        <li>
        <span><%= link_to user.name, edit_user_path(id: user.id) %></span>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  

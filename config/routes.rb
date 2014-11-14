@@ -5,6 +5,8 @@ get'sign_up'=>'users#new'
 get'sign_in'=>'session_user#new'
 post'sign_in'=>'session_user#create'
 delete 'sign_out' =>'session_user#destroy', as: :sign_out
+ root 'static_pages#welcome'
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

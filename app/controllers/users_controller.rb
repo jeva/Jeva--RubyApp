@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     
     if @user.save
       Usermailer.welcome_email(@user).deliver
+     
       redirect_to user_path(id: @user.id), notice: 'Succussfully Signed Up'
     else 
       render :new
@@ -56,7 +57,7 @@ end
    @user = User.find(params[:id])
    
    if @user.destroy
-      redirect_to user_path, notice: "Successfully deleted"
+      redirect_to users_path, notice: "Successfully deleted"
       
     else
       

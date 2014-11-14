@@ -12,20 +12,16 @@ class SessionUserController < ApplicationController
        @user = User.find_by(email: params[:session][:email])
        
        if @user
-           if @user.authenticate(params[:session][:password])
-          session[:user_id] = @user.id
-           redirect_to user_path(id: @user.id), notice: 'Welcome to Its My First Ruby App'
-           
-       else
-           redirect_to sign_in_path, notice: 'Invalid Username/Password'
-           
-       end
-           
-       else
-           redirect_to sign_in_path, notice: 'User Not Found'
-           
-       end
-       
+          if @user.authenticate(params[:session][:password]) 
+               session[:user_id] = @user.id
+               redirect_to user_path(id: @user.id), notice: 'Successfully Signed In'
+            else
+                redirect_to sign_in_path, notice: "Incorrect Username/Password"
+                
+            end
+        else
+            redirect_to sign_in_path, notice: "User Not found"
+        end
     end
     
     
